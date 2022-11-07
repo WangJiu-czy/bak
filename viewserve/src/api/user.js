@@ -7,7 +7,7 @@ import {request, requestWithoutLoading} from '@/utils'
  * @param uid
  * @returns {*}
  */
-export const getUserDetail = (uid) => requestWithoutLoading.get("/user/detail", { params: { uid } })
+export const getUserDetail = (uid) => requestWithoutLoading.get("/user/detail", {params: {uid}})
 
 
 /**
@@ -22,18 +22,39 @@ export const getUserDetail = (uid) => requestWithoutLoading.get("/user/detail", 
  * @returns {*}
  */
 const PLAYLIST_LIMIT = 1000
-export const getUserPlaylist = (uid) => requestWithoutLoading.get("/user/playlist", { params: { uid, limit: PLAYLIST_LIMIT } })
+export const getUserPlaylist = (uid) => requestWithoutLoading.get("/user/playlist", {
+    params: {
+        uid,
+        limit: PLAYLIST_LIMIT
+    }
+})
 
-export const getLoginImg=async ()=>{
-    const keydata =await request.get("/login/qr/key",{params:{"timestamp":new Date().getTime()}})
+export const getLoginImg = async () => {
+    const keydata = await request.get("/login/qr/key", {params: {"timestamp": new Date().getTime()}})
 
-    if (keydata.data.code==200){
+    if (keydata.data.code == 200) {
 
         const key = keydata.data.unikey
-        const imgurl = await request.get("/login/qr/create",{params:{key,"timestamp":new Date().getTime(),qrimg:true}})
+        const imgurl = await request.get("/login/qr/create", {
+            params: {
+                key,
+                "timestamp": new Date().getTime(),
+                qrimg: true
+            }
+        })
 
-        const url=imgurl.data.qrimg
-        return {key,url}
+        const url = imgurl.data.qrimg
+        return {key, url}
     }
 
 }
+export const checkKey=(key)=>request.get("/login/qr/check",{params:{key,"timestamp": new Date().getTime()}})
+export const phoneLogin = (phone, password) => request.get("/login/cellphone", {
+    params: {
+        phone,
+        password,
+        timestamp: new Date().getTime(),
+    }
+})
+
+export const loginStatus=()=>request.get("/login/status")

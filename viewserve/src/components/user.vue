@@ -33,7 +33,7 @@
         <span class="dialog-footer" slot="footer">
         <el-button
             :loading="loading"
-            @click="onLogin(uid)"
+            @click="onLogin(phone,password)"
             class="login-btn"
             type="primary"
         >登 录</el-button
@@ -86,7 +86,9 @@ import {
   mapState as mapUserState,
   mapGetters as mapUserGetters
 } from "@/store/helper/user"
-import {getLoginImg} from "@/api";
+import {checkKey, getLoginImg, loginStatus} from "@/api";
+import storage from "good-storage";
+import {COOKIE_KEY, UID_KEY} from "@/utils";
 
 export default {
   // 自动登录
@@ -118,9 +120,9 @@ export default {
   setPhone(){
       this.isImgLogin=false
   },
-    async onLogin(uid) {
+    async onLogin(phone,password) {
       this.loading = true
-      const success = await this.login(uid).finally(() => {
+      const success = await this.phoneLogin({phone,password}).finally(() => {
         this.loading = false
       })
       if (success) {
@@ -132,14 +134,36 @@ export default {
       const options=await getLoginImg()
       this.key=options.key
       this.imgurl=options.url
+      await this.selectStatus()
     },
+    async selectStatus(){
 
+      let timer = setInterval(async () => {
+        const statusRes = await  checkKey(this.key)
+        if (statusRes.code === 800) {
+          alert('二维码已过期,请重新获取')
+          clearInterval(timer)
+        }
+        if (statusRes.code === 803) {
+          // 这一步会返回cookie
+          clearInterval(timer)
+          alert('授权登录成功')
+          storage.set(COOKIE_KEY,statusRes.cookie)
+          const status=await loginStatus()
+          storage.set(UID_KEY, status.data.account.id)
+          const res=await this.login(status.data.account.id)
+          if (res){
+            this.onCloseModal()
+          }
+        }
+      }, 3000)
+    },
     onLogout() {
       confirm("确定要注销吗？", () => {
         this.logout()
       })
     },
-    ...mapUserActions(["login", "logout"])
+    ...mapUserActions(["login", "logout","phoneLogin"])
   },
   computed: {
     ...mapUserState(["user"]),

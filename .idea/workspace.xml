@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c89c9eb3-5a4f-429a-8539-1e43eb52639a" name="变更" comment="剩下api对接修改和新增好友推荐界面">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewserve/src/api/playlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/api/playlist.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/viewserve/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/api/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/viewserve/src/components/user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/components/user.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewserve/src/page/playlists/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/page/playlists/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewserve/src/utils/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/utils/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewserve/src/utils/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/utils/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewserve/src/utils/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/utils/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewserve/src/utils/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/utils/global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewserve/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewserve/src/store/modules/user/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/store/modules/user/actions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,11 +53,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\MyProjects\MusicSystem\view\viewserve\src\page\playlists" />
+      <recent name="E:\MyProjects\MusicSystem\view\viewserve\src\components" />
       <recent name="E:\MyProjects\MusicSystem\view\viewserve\src" />
       <recent name="E:\MyProjects\MusicSystem\view\viewserve" />
       <recent name="E:\MyProjects\MusicSystem\view\viewserve\src\api" />
-      <recent name="E:\MyProjects\MusicSystem\view\viewserve\src\utils" />
-      <recent name="E:\MyProjects\MusicSystem\view\viewserve\src\components" />
     </key>
   </component>
   <component name="RunManager" selected="npm.dev">
@@ -131,19 +124,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="dev" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
