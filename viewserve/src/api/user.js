@@ -1,4 +1,4 @@
-import { requestWithoutLoading } from '@/utils'
+import {request, requestWithoutLoading} from '@/utils'
 
 /**
  * 说明 : 登录后调用此接口 , 传入用户 id, 可以获取用户详情
@@ -23,3 +23,17 @@ export const getUserDetail = (uid) => requestWithoutLoading.get("/user/detail", 
  */
 const PLAYLIST_LIMIT = 1000
 export const getUserPlaylist = (uid) => requestWithoutLoading.get("/user/playlist", { params: { uid, limit: PLAYLIST_LIMIT } })
+
+export const getLoginImg=async ()=>{
+    const keydata =await request.get("/login/qr/key",{params:{"timestamp":new Date().getTime()}})
+
+    if (keydata.data.code==200){
+
+        const key = keydata.data.unikey
+        const imgurl = await request.get("/login/qr/create",{params:{key,"timestamp":new Date().getTime(),qrimg:true}})
+
+        const url=imgurl.data.qrimg
+        return {key,url}
+    }
+
+}

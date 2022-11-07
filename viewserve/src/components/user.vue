@@ -18,62 +18,94 @@
       :width="$utils.toRem(320)"
     >
       <p slot="title">登录</p>
-      <div class="login-body">
+      <div class="login-body" v-if="!isImgLogin">
         <el-input
           class="input"
-          placeholder="请输入您的网易云uid"
-          v-model="uid"
+          placeholder="请输入手机号"
+          v-model="phone"
         />
-        <div class="login-help">
-          <p class="help">
-            1、请
-            <a href="http://music.163.com" target="_blank"
-              >点我(http://music.163.com)</a
-            >打开网易云音乐官网
-          </p>
-          <p class="help">2、点击页面右上角的“登录”</p>
-          <p class="help">3、点击您的头像，进入我的主页</p>
-          <p class="help">
-            4、复制浏览器地址栏 /user/home?id= 后面的数字（网易云 UID）
-          </p>
-        </div>
-      </div>
-      <span class="dialog-footer" slot="footer">
+        <el-input
+            class="input"
+            placeholder="请输入密码"
+            v-model="password"
+            type="password"
+        />
+        <span class="dialog-footer" slot="footer">
         <el-button
-          :loading="loading"
-          @click="onLogin(uid)"
-          class="login-btn"
-          type="primary"
-          >登 录</el-button
+            :loading="loading"
+            @click="onLogin(uid)"
+            class="login-btn"
+            type="primary"
+        >登 录</el-button
         >
       </span>
+
+      </div>
+
+      <span class="dialog-footer" slot="footer"  v-if="!isImgLogin">
+        <el-button
+            :loading="loading"
+            @click="setImgLogin()"
+            class="login-btn"
+            type="primary"
+        >二维码登录</el-button
+        >
+      </span>
+
+      <div class="login-body" v-if="isImgLogin">
+      <el-row>
+        <el-col >
+          <el-card :body-style="{ padding: '0px' }">
+            <img :src="imgurl" class="image">
+          </el-card>
+        </el-col>
+      </el-row>
+        <span class="dialog-footer" slot="footer" >
+        <el-button
+            :loading="loading"
+            @click="setPhone()"
+            class="login-btn"
+            type="primary"
+        >密码登录</el-button
+        >
+      </span>
+      </div>
+
+
+
     </el-dialog>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import storage from "good-storage"
-import { UID_KEY, isDef } from "@/utils"
+/*import storage from "good-storage"
+import { UID_KEY, isDef } from "@/utils"*/
 import { confirm } from "@/base/confirm"
 import {
   mapActions as mapUserActions,
   mapState as mapUserState,
   mapGetters as mapUserGetters
 } from "@/store/helper/user"
+import {getLoginImg} from "@/api";
 
 export default {
   // 自动登录
   created() {
-    const uid = storage.get(UID_KEY)
+   /* const uid = storage.get(UID_KEY)
     if (isDef(uid)) {
       this.onLogin(uid)
-    }
+    }*/
   },
   data() {
     return {
       visible: false,
       loading: false,
-      uid: ""
+      uid: "",
+      isImgLogin:false,
+      phone:"",
+      password:"",
+      key:"",
+      imgurl:"",
     }
   },
   methods: {
@@ -83,6 +115,9 @@ export default {
     onCloseModal() {
       this.visible = false
     },
+  setPhone(){
+      this.isImgLogin=false
+  },
     async onLogin(uid) {
       this.loading = true
       const success = await this.login(uid).finally(() => {
@@ -92,6 +127,13 @@ export default {
         this.onCloseModal()
       }
     },
+    async setImgLogin(){
+      this.isImgLogin=true
+      const options=await getLoginImg()
+      this.key=options.key
+      this.imgurl=options.url
+    },
+
     onLogout() {
       confirm("确定要注销吗？", () => {
         this.logout()
@@ -108,6 +150,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.image {
+  width: 100%;
+  display: block;
+}
 .user {
   padding: 16px;
   padding-bottom: 0;

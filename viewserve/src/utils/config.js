@@ -24,3 +24,5 @@ export const UID_KEY = '__uid__'
 
 // 音量
 export const VOLUME_KEY = '__volume__'
+
+export const COOKIE_KEY='__cookie__'

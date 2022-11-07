@@ -12,7 +12,8 @@ import { request, requestWithoutLoading } from '@/utils'
  * @param params
  * @returns {*}
  */
-export const getPlaylists = (params) => request.get('/top/playlist', { params })
+export const getPlaylists = (params) => request.get('/top/playlist', { params:params })
+
 
 /**
  * 说明 : 调用此接口 , 可获取精品歌单

@@ -1,45 +1,45 @@
 // 推荐歌单页面
 <template>
   <div
-    class="playlists"
-    ref="playlists"
+      class="playlists"
+      ref="playlists"
   >
     <div
-      class="top-play-list-card"
-      v-if="topPlaylist.id"
+        class="top-play-list-card"
+        v-if="topPlaylist.id"
     >
       <TopPlaylistCard
-        :desc="topPlaylist.description"
-        :id="topPlaylist.id"
-        :img="topPlaylist.coverImgUrl"
-        :name="topPlaylist.name"
+          :desc="topPlaylist.description"
+          :id="topPlaylist.id"
+          :img="topPlaylist.coverImgUrl"
+          :name="topPlaylist.name"
       />
     </div>
     <div class="tabs">
       <Tabs
-        :tabs="tabs"
-        @tabChange="onTabChange"
-        align="right"
-        type="small"
-        v-model="activeTabIndex"
+          :tabs="tabs"
+          @tabChange="onTabChange"
+          align="right"
+          type="small"
+          v-model="activeTabIndex"
       />
     </div>
     <div class="playlist-cards">
       <PlaylistCard
-        :desc="`播放量：${$utils.formatNumber(item.playCount)}`"
-        :id="item.id"
-        :img="item.coverImgUrl"
-        :key="item.id"
-        :name="item.name"
-        v-for="item in playlists"
+          :desc="`播放量：${$utils.formatNumber(item.playCount)}`"
+          :id="item.id"
+          :img="item.coverImgUrl"
+          :key="item.id"
+          :name="item.name"
+          v-for="item in playlists"
       />
     </div>
     <Pagination
-      :current-page.sync="currentPage"
-      :page-size="PAGE_SIZE"
-      :total="total"
-      @current-change="onPageChange"
-      class="pagination"
+        :current-page.sync="currentPage"
+        :page-size="PAGE_SIZE"
+        :total="total"
+        @current-change="onPageChange"
+        class="pagination"
     ></Pagination>
   </div>
 </template>
@@ -76,15 +76,15 @@ export default {
     return {
       activeTabIndex: 0,
       playlists: [],
-      currentPage: 0,
       total: 0,
-      topPlaylist: {}
+      topPlaylist: {},
+      currentPage: 1
     }
   },
   methods: {
     // 获取歌单和精品歌单
     async initData() {
-      this.getPlaylists()
+     this.getPlaylists()
       this.getTopPlaylists()
     },
     async getPlaylists() {
@@ -110,7 +110,7 @@ export default {
       scrollInto(this.$refs.playlists)
     },
     onTabChange() {
-      this.currentPage = 0
+      this.currentPage = 1
       this.initData()
     }
   },

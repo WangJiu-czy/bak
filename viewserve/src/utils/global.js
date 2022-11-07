@@ -9,6 +9,9 @@ import {
   TableColumn,
   Popover,
   Pagination,
+    Card,
+    Row,
+    Col
 } from "element-ui"
 import VueLazyload from "vue-lazyload"
 import Meta from 'vue-meta'
@@ -44,7 +47,9 @@ export default {
     Vue.use(Loading)
     Vue.use(Dialog)
     Vue.use(Button)
-
+    Vue.use(Col)
+    Vue.use(Row)
+    Vue.use(Card)
     Vue.use(Meta)
 
     Vue.use(VueLazyload, {

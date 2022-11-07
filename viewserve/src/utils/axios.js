@@ -3,7 +3,8 @@ import { Loading } from 'element-ui'
 import { confirm } from '@/base/confirm'
 import store from '@/store'
 //TODO:这里修改为SpringBoot的后端服务地址
-const BASE_URL = 'http://netease-music-api.fe-mm.com/'
+//const BASE_URL = 'http://netease-music-api.fe-mm.com/'
+const BASE_URL='http://localhost:8888'
 // 不带全局loading的请求实例
 export const requestWithoutLoading = createBaseInstance()
 // 带全局loading的请求实例

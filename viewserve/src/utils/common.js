@@ -151,5 +151,5 @@ export function isFalse(v) {
 }
 
 export function getPageOffset(page, limit) {
-  return (page - 1) * limit
+  return (page -1) * limit
 }

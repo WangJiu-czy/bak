@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c89c9eb3-5a4f-429a-8539-1e43eb52639a" name="变更" comment="剩下api对接修改和新增好友推荐界面">
-      <change beforePath="$PROJECT_DIR$/../springboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot/src/main/java/com/czy/springboot/SpringbootApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot/src/main/java/com/czy/springboot/SpringbootApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot/src/main/java/com/czy/springboot/config/MusicConf.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot/src/main/java/com/czy/springboot/config/MusicConf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot/src/main/java/com/czy/springboot/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot/src/main/java/com/czy/springboot/config/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot/src/main/java/com/czy/springboot/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot/src/main/java/com/czy/springboot/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot/src/main/java/com/czy/springboot/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot/src/main/java/com/czy/springboot/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewserve/src/api/playlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/api/playlist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewserve/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/api/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewserve/src/components/user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/components/user.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewserve/src/page/playlists/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/page/playlists/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewserve/src/utils/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/utils/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewserve/src/utils/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/utils/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewserve/src/utils/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/utils/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewserve/src/utils/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/src/utils/global.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewserve/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/viewserve/vue.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +29,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -115,6 +118,8 @@
       <workItem from="1667361865042" duration="7034000" />
       <workItem from="1667446130823" duration="669000" />
       <workItem from="1667455897532" duration="1637000" />
+      <workItem from="1667785461408" duration="8676000" />
+      <workItem from="1667796858062" duration="2246000" />
     </task>
     <servers />
   </component>
